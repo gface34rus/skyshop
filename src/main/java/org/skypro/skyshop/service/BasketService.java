@@ -25,6 +25,7 @@ public class BasketService {
         this.storageService = storageService;
     }
 
+
     public void addProductToBasket(UUID id) {
         Optional<Product> productOptional = storageService.getProductById(id);
         if (productOptional.isEmpty()) {
@@ -32,6 +33,7 @@ public class BasketService {
         }
         productBasket.addProduct(id);
     }
+
 
     public UserBasket getUserBasket() {
         Map<UUID, Integer> productsInBasket = productBasket.getProducts();
@@ -48,4 +50,6 @@ public class BasketService {
 
         return new UserBasket(basketItems, total);
     }
+
+
 }
